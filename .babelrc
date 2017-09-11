@@ -5,35 +5,13 @@
     "stage-0"
   ],
   "plugins": [
-    "transform-runtime",
-    [
-      "module-alias",
-      [
-        {
-          "expose": "components",
-          "src": "src/core/components"
-        },
-        {
-          "expose": "core",
-          "src": "src/core"
-        },
-        {
-          "expose": "img",
-          "src": "src/img"
-        },
-        {
-          "expose": "corePlugins",
-          "src": "src/core/plugins"
-        },
-        {
-          "expose": "less",
-          "src": "src/less"
-        },
-        {
-          "expose": "base",
-          "src": "npm:getbase/src/less/base"
-        }
-      ]
-    ]
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "components": "core/components",
+        "corePlugins": "core/plugins",
+        "base": "getbase/src/less/base"
+      }
+    }]
   ]
 }
